@@ -1,0 +1,86 @@
+---
+const personas = [
+  {
+    badge: 'E-commerce',
+    bg: 'bg-binah-lavender',
+    textColor: 'text-black',
+    descColor: 'text-black/60',
+    shadow: '',
+    title: 'Vende en línea sin perder el control',
+    description:
+      'Conecta Shopify o WooCommerce y centraliza pedidos, envíos, inventario y facturación. Tu tienda online operando en piloto automático.',
+    stats: [
+      { value: '100%', label: 'Pedidos centralizados' },
+      { value: '3x', label: 'Más rápido despachar' },
+    ],
+  },
+  {
+    badge: 'Servicios',
+    bg: 'bg-binah-purple',
+    textColor: 'text-white',
+    descColor: 'text-white/70',
+    shadow: 'shadow-brutal-md',
+    title: 'Gestiona citas, cotizaciones y seguimientos',
+    description:
+      'Agenda actividades, recoge evidencias en campo, genera cotizaciones y convierte en pedidos. Todo vinculado al cliente.',
+    stats: [
+      { value: '5x', label: 'Menos tiempo admin' },
+      { value: '360°', label: 'Vista del cliente' },
+    ],
+  },
+  {
+    badge: 'Dropshipping',
+    bg: 'bg-binah-dark',
+    textColor: 'text-white',
+    descColor: 'text-white/70',
+    shadow: '',
+    title: 'Escala sin bodega propia',
+    description:
+      'Recibe pedidos de múltiples canales, genera guías con Coordinadora o 99 Envíos y factura con Siigo. Sin tocar un producto.',
+    stats: [
+      { value: '2+', label: 'Transportadoras' },
+      { value: '99.9%', label: 'Uptime' },
+    ],
+  },
+];
+---
+
+<section class="bg-white py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tighter">
+        Hecho para <span class="text-binah-purple">tu tipo de negocio</span>
+      </h2>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {
+        personas.map((persona) => (
+          <div
+            class={`${persona.bg} ${persona.shadow} border-2 border-black rounded-brutal p-8 flex flex-col`}
+          >
+            <span class="inline-flex self-start bg-white text-black text-xs font-bold px-3 py-1.5 rounded-full border-2 border-black mb-6">
+              {persona.badge}
+            </span>
+            <h3
+              class={`text-2xl font-extrabold tracking-tighter ${persona.textColor} mb-3`}
+            >
+              {persona.title}
+            </h3>
+            <p class={`${persona.descColor} font-medium leading-relaxed mb-6 flex-1`}>
+              {persona.description}
+            </p>
+            <div class="flex gap-6 pt-4 border-t border-black/10">
+              {persona.stats.map((stat) => (
+                <div>
+                  <div class={`text-2xl font-extrabold ${persona.textColor}`}>{stat.value}</div>
+                  <div class={`text-xs font-medium ${persona.descColor}`}>{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>

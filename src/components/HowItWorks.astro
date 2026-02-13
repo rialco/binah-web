@@ -1,0 +1,66 @@
+---
+const steps = [
+  {
+    number: '01',
+    borderColor: 'border-binah-lavender',
+    glowColor: 'shadow-[0_0_0_4px_#ede9fe]',
+    title: 'Conecta tu tienda',
+    description:
+      'Vincula tu Shopify o WooCommerce en minutos. Tus pedidos, productos y clientes se sincronizan automáticamente.',
+  },
+  {
+    number: '02',
+    borderColor: 'border-binah-purple',
+    glowColor: 'shadow-[0_0_0_4px_#4d37f6]',
+    title: 'Automatiza la operación',
+    description:
+      'Configura flujos que generan guías de envío, facturan en Siigo y responden por WhatsApp sin intervención manual.',
+  },
+  {
+    number: '03',
+    borderColor: 'border-white',
+    glowColor: 'shadow-[0_0_0_4px_#ffffff]',
+    title: 'Escala tu negocio',
+    description:
+      'Con la operación automatizada, enfócate en crecer. Analítica en tiempo real para tomar mejores decisiones.',
+  },
+];
+---
+
+<section id="como-funciona" class="bg-binah-charcoal py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tighter text-white">
+        Funcionando en <span class="text-binah-lavender">3 pasos</span>
+      </h2>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto">
+      <!-- Connecting line (hidden on mobile) -->
+      <div
+        class="hidden lg:block absolute top-12 left-[calc(16.67%+1.5rem)] right-[calc(16.67%+1.5rem)] h-0.5 bg-binah-dark"
+      >
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-12 lg:gap-8">
+        {
+          steps.map((step) => (
+            <div class="flex flex-col items-center text-center">
+              <div
+                class={`w-24 h-24 rounded-full border-2 ${step.borderColor} ${step.glowColor} flex items-center justify-center mb-6 bg-binah-charcoal relative z-10`}
+              >
+                <span class="text-white text-2xl font-extrabold">{step.number}</span>
+              </div>
+              <h3 class="text-2xl font-extrabold tracking-tighter text-white mb-3">
+                {step.title}
+              </h3>
+              <p class="text-white/60 font-medium leading-relaxed max-w-xs">
+                {step.description}
+              </p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,494 @@
+---
+const features = [
+  {
+    id: 'gestion-pedidos',
+    title: 'Gestión de Pedidos',
+    description:
+      'Recibe pedidos de <strong class="text-binah-purple">Shopify</strong> y <strong class="text-binah-purple">WooCommerce</strong> automáticamente. Gestiona estados, pagos, canales de venta y notas desde un solo panel.',
+    detail:
+      'Centraliza todos tus canales de venta en una única interfaz. Filtra por estado, transportadora o fecha. Asigna pedidos a bodegas y genera envíos con un clic.',
+    url: 'app.binah.co/pedidos',
+  },
+  {
+    id: 'whatsapp-ia',
+    title: 'WhatsApp con IA',
+    description:
+      'Chatbot inteligente que atiende clientes, detecta pedidos y escala a tu equipo. <strong class="text-binah-purple">Campañas masivas</strong>, plantillas y gestión multicanal.',
+    detail:
+      'El chatbot responde consultas frecuentes, confirma estados de pedido y escala automáticamente a un agente humano cuando detecta intención de compra.',
+    url: 'app.binah.co/whatsapp',
+  },
+  {
+    id: 'envios-integrados',
+    title: 'Envíos Integrados',
+    description:
+      'Genera guías de <strong class="text-binah-purple">Coordinadora</strong> y <strong class="text-binah-purple">99 Envíos</strong> con un clic. Cotiza, imprime rótulos y rastrea paquetes en tiempo real.',
+    detail:
+      'Compara tarifas entre transportadoras, genera guías masivas y envía notificaciones automáticas de tracking a tus clientes por WhatsApp.',
+    url: 'app.binah.co/envios',
+  },
+  {
+    id: 'facturacion-siigo',
+    title: 'Facturación con Siigo',
+    description:
+      'Genera facturas y comprobantes de pago en <strong class="text-binah-purple">Siigo</strong> automáticamente al despachar un pedido.',
+    detail:
+      'Facturación electrónica <strong class="text-binah-purple">DIAN</strong> con ruteo inteligente según bodega de despacho o medio de pago.',
+    url: 'app.binah.co/facturas',
+  },
+  {
+    id: 'inventario',
+    title: 'Inventario Multi-bodega',
+    description:
+      'Control de stock en <strong class="text-binah-purple">tiempo real</strong> entre múltiples bodegas. Alertas de bajo inventario, transferencias y sincronización con tu tienda.',
+    detail:
+      'Gestiona stock en múltiples ubicaciones, configura alertas de reposición y sincroniza automáticamente con Shopify y WooCommerce.',
+    url: 'app.binah.co/inventario',
+  },
+  {
+    id: 'automatizaciones',
+    title: 'Automatizaciones',
+    description:
+      'Flujos automáticos que conectan pedidos, envíos, facturación y mensajes de <strong class="text-binah-purple">WhatsApp</strong>. Dispara acciones por webhooks o cambios de estado.',
+    detail:
+      'Crea flujos personalizados que se ejecutan automáticamente. Conecta cualquier acción con <strong class="text-binah-purple">webhooks</strong> entrantes y salientes.',
+    url: 'app.binah.co/automatizaciones',
+  },
+];
+
+const navItems = features.map((f) => ({ id: f.id, label: f.title }));
+---
+
+<section id="funcionalidades" class="bg-binah-lavender border-y-2 border-black py-20 lg:py-28">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-extrabold tracking-tighter">
+        Todo lo que necesitas para <span class="text-binah-purple">vender más</span>
+      </h2>
+      <p class="mt-4 text-lg font-medium text-black/60 max-w-2xl mx-auto">
+        Funcionalidades integradas que trabajan juntas para potenciar tu operación de e-commerce.
+      </p>
+    </div>
+
+    <div class="grid lg:grid-cols-[280px_1fr] gap-12">
+      <!-- Sticky sidebar -->
+      <div class="hidden lg:block">
+        <nav class="sticky top-28 space-y-1">
+          {navItems.map((item) => (
+            <a
+              href={`#${item.id}`}
+              data-feature-nav
+              class="feature-nav-link flex items-center gap-3 px-4 py-3 rounded-brutal border-2 border-transparent transition-all duration-300 text-black/40 font-bold text-sm hover:text-binah-charcoal group"
+            >
+              <span class="w-2 h-2 rounded-full bg-black/20 transition-all duration-300 group-hover:bg-binah-purple feature-nav-dot"></span>
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+
+      <!-- Feature content -->
+      <div class="space-y-20 lg:space-y-28">
+        {features.map((feature, i) => (
+          <div
+            id={feature.id}
+            data-feature-section
+            class={`grid md:grid-cols-2 gap-8 items-center ${i % 2 !== 0 ? 'md:[direction:rtl] md:[&>*]:[direction:ltr]' : ''}`}
+          >
+            <!-- Text -->
+            <div>
+              <h3 class="text-2xl lg:text-3xl font-extrabold tracking-tighter mb-4">
+                {feature.title}
+              </h3>
+              <p class="text-black/60 font-medium leading-relaxed mb-3" set:html={feature.description} />
+              <p class="text-black/40 font-medium leading-relaxed text-sm" set:html={feature.detail} />
+            </div>
+
+            <!-- Visual: Dashboard mockup -->
+            <div class="rounded-brutal overflow-hidden border-2 border-black shadow-brutal-sm bg-white">
+              <!-- Browser chrome -->
+              <div class="bg-binah-charcoal h-8 px-3 flex items-center gap-2 border-b-2 border-black">
+                <div class="flex gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#ff5f57] border border-black/20"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#febc2e] border border-black/20"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-[#28c840] border border-black/20"></div>
+                </div>
+                <div class="flex-1 flex justify-center">
+                  <div class="bg-white/10 rounded px-3 py-0.5 text-white/40 text-[10px] font-medium">
+                    {feature.url}
+                  </div>
+                </div>
+                <div class="w-10"></div>
+              </div>
+
+              <!-- ============ ORDERS MOCKUP ============ -->
+              {feature.id === 'gestion-pedidos' && (
+                <div class="p-3 bg-binah-lavender/40">
+                  <div class="flex gap-1.5 mb-3 flex-wrap">
+                    <span class="bg-binah-purple text-white text-[10px] font-bold px-2.5 py-1 rounded-full border border-black">Todos (847)</span>
+                    <span class="bg-white text-black/40 text-[10px] font-medium px-2.5 py-1 rounded-full border-2 border-black/10">Pendientes</span>
+                    <span class="bg-white text-black/40 text-[10px] font-medium px-2.5 py-1 rounded-full border-2 border-black/10">En proceso</span>
+                    <span class="bg-white text-black/40 text-[10px] font-medium px-2.5 py-1 rounded-full border-2 border-black/10">Entregados</span>
+                  </div>
+                  <div class="bg-white rounded-brutal border-2 border-black overflow-hidden">
+                    <table class="w-full text-[10px]">
+                      <thead>
+                        <tr class="border-b-2 border-black bg-binah-lavender/60">
+                          <th class="text-left py-2 px-3 text-black/50 font-bold">Pedido</th>
+                          <th class="text-left py-2 px-3 text-black/50 font-bold hidden sm:table-cell">Cliente</th>
+                          <th class="text-left py-2 px-3 text-black/50 font-bold">Total</th>
+                          <th class="text-left py-2 px-3 text-black/50 font-bold hidden sm:table-cell">Canal</th>
+                          <th class="text-right py-2 px-3 text-black/50 font-bold">Estado</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          { id: '#1847', client: 'María García', total: '$245,000', channel: 'Shopify', channelColor: 'bg-green-100 text-green-800 border border-green-300', status: 'Entregado', statusColor: 'bg-emerald-100 text-emerald-800 border border-emerald-300' },
+                          { id: '#1846', client: 'Carlos López', total: '$180,500', channel: 'Woo', channelColor: 'bg-purple-100 text-purple-800 border border-purple-300', status: 'En proceso', statusColor: 'bg-binah-lavender text-binah-purple border border-binah-purple/30' },
+                          { id: '#1845', client: 'Ana Rodríguez', total: '$92,000', channel: 'Shopify', channelColor: 'bg-green-100 text-green-800 border border-green-300', status: 'Pendiente', statusColor: 'bg-amber-100 text-amber-800 border border-amber-300' },
+                          { id: '#1844', client: 'José Martínez', total: '$310,200', channel: 'Woo', channelColor: 'bg-purple-100 text-purple-800 border border-purple-300', status: 'Entregado', statusColor: 'bg-emerald-100 text-emerald-800 border border-emerald-300' },
+                          { id: '#1843', client: 'Laura Torres', total: '$156,800', channel: 'Shopify', channelColor: 'bg-green-100 text-green-800 border border-green-300', status: 'En proceso', statusColor: 'bg-binah-lavender text-binah-purple border border-binah-purple/30' },
+                        ].map((order) => (
+                          <tr class="border-b border-black/10 last:border-0">
+                            <td class="py-2 px-3 font-extrabold text-binah-charcoal">{order.id}</td>
+                            <td class="py-2 px-3 text-black/50 hidden sm:table-cell">{order.client}</td>
+                            <td class="py-2 px-3 text-black/60 font-bold">{order.total}</td>
+                            <td class="py-2 px-3 hidden sm:table-cell">
+                              <span class={`inline-block text-[8px] font-bold px-1.5 py-0.5 rounded ${order.channelColor}`}>{order.channel}</span>
+                            </td>
+                            <td class="py-2 px-3 text-right">
+                              <span class={`inline-block text-[8px] font-bold px-1.5 py-0.5 rounded ${order.statusColor}`}>{order.status}</span>
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              )}
+
+              <!-- ============ WHATSAPP MOCKUP ============ -->
+              {feature.id === 'whatsapp-ia' && (
+                <div>
+                  <div class="bg-[#075e54] px-3 py-2 flex items-center gap-2 border-b-2 border-black">
+                    <div class="w-7 h-7 rounded-full bg-white/20 flex items-center justify-center shrink-0 border border-white/30">
+                      <span class="text-white text-[10px] font-bold">MG</span>
+                    </div>
+                    <div class="min-w-0">
+                      <div class="text-white text-[11px] font-bold">María García</div>
+                      <div class="text-white/60 text-[9px]">+57 311 456 7890</div>
+                    </div>
+                    <div class="ml-auto shrink-0">
+                      <span class="bg-[#25d366] text-white text-[8px] font-bold px-1.5 py-0.5 rounded-full flex items-center gap-1 border border-black/20">
+                        <span class="w-1 h-1 rounded-full bg-white animate-pulse"></span>
+                        IA Activa
+                      </span>
+                    </div>
+                  </div>
+                  <div class="bg-[#ece5dd] p-3 space-y-2">
+                    <div class="flex justify-end">
+                      <div class="bg-[#dcf8c6] rounded-lg rounded-tr-sm px-2.5 py-1.5 max-w-[78%] shadow-sm border border-black/10">
+                        <p class="text-[11px] text-[#303030] leading-relaxed">Hola, quiero saber el estado de mi pedido #1847</p>
+                        <span class="text-[8px] text-gray-500 float-right mt-0.5 ml-2">10:42 AM</span>
+                      </div>
+                    </div>
+                    <div class="flex justify-start">
+                      <div class="bg-white rounded-lg rounded-tl-sm px-2.5 py-1.5 max-w-[82%] shadow-sm border border-black/10">
+                        <div class="flex items-center gap-1 mb-0.5">
+                          <span class="bg-binah-purple text-white text-[7px] font-bold px-1 py-px rounded">IA</span>
+                          <span class="text-[8px] text-black/40">Binah Bot</span>
+                        </div>
+                        <p class="text-[11px] text-[#303030] leading-relaxed">¡Hola María! Tu pedido <strong>#1847</strong> fue despachado con <strong>Coordinadora</strong>. Guía: CR-789456. Llegada estimada: mañana entre 2-5pm.</p>
+                        <span class="text-[8px] text-gray-500 float-right mt-0.5 ml-2">10:42 AM</span>
+                      </div>
+                    </div>
+                    <div class="flex justify-end">
+                      <div class="bg-[#dcf8c6] rounded-lg rounded-tr-sm px-2.5 py-1.5 max-w-[78%] shadow-sm border border-black/10">
+                        <p class="text-[11px] text-[#303030] leading-relaxed">Perfecto, gracias!</p>
+                        <span class="text-[8px] text-gray-500 float-right mt-0.5 ml-2">10:43 AM</span>
+                      </div>
+                    </div>
+                    <div class="flex justify-start">
+                      <div class="bg-white rounded-lg rounded-tl-sm px-2.5 py-1.5 max-w-[82%] shadow-sm border border-black/10">
+                        <div class="flex items-center gap-1 mb-0.5">
+                          <span class="bg-binah-purple text-white text-[7px] font-bold px-1 py-px rounded">IA</span>
+                        </div>
+                        <p class="text-[11px] text-[#303030] leading-relaxed">¡Con gusto! ¿Necesitas algo más? Estoy aquí para ayudarte.</p>
+                        <span class="text-[8px] text-gray-500 float-right mt-0.5 ml-2">10:43 AM</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <!-- ============ SHIPPING MOCKUP ============ -->
+              {feature.id === 'envios-integrados' && (
+                <div class="p-3 bg-binah-lavender/40 space-y-3">
+                  <div class="text-[10px] text-black/40 font-bold">Cotización — Pedido #1847 · Bogotá → Medellín</div>
+                  <div class="grid grid-cols-2 gap-2">
+                    <div class="bg-white rounded-brutal p-3 border-2 border-black/10">
+                      <div class="flex items-center gap-1.5 mb-2">
+                        <div class="w-5 h-5 rounded bg-orange-100 flex items-center justify-center border border-orange-300">
+                          <span class="text-orange-600 text-[8px] font-bold">CO</span>
+                        </div>
+                        <span class="font-extrabold text-[11px] text-binah-charcoal">Coordinadora</span>
+                      </div>
+                      <div class="text-base font-extrabold text-binah-charcoal">$12,500</div>
+                      <div class="text-[9px] text-black/40 mt-0.5">2-3 días hábiles</div>
+                    </div>
+                    <div class="bg-white rounded-brutal p-3 border-2 border-binah-purple relative">
+                      <span class="absolute -top-2 right-2 bg-binah-purple text-white text-[7px] font-bold px-1.5 py-0.5 rounded-full border border-black/20">Mejor precio</span>
+                      <div class="flex items-center gap-1.5 mb-2">
+                        <div class="w-5 h-5 rounded bg-blue-100 flex items-center justify-center border border-blue-300">
+                          <span class="text-blue-600 text-[8px] font-bold">99</span>
+                        </div>
+                        <span class="font-extrabold text-[11px] text-binah-charcoal">99 Envíos</span>
+                      </div>
+                      <div class="text-base font-extrabold text-binah-purple">$9,800</div>
+                      <div class="text-[9px] text-black/40 mt-0.5">3-5 días hábiles</div>
+                    </div>
+                  </div>
+                  <div class="bg-white rounded-brutal p-3 border-2 border-black/10">
+                    <div class="text-[10px] text-black/40 font-bold mb-3">Tracking · Guía CR-789456</div>
+                    <div class="flex items-center">
+                      <div class="flex flex-col items-center gap-1">
+                        <div class="w-5 h-5 rounded-full bg-binah-purple flex items-center justify-center border border-black/20">
+                          <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <span class="text-[7px] font-bold text-binah-purple">Recogido</span>
+                      </div>
+                      <div class="flex-1 h-0.5 bg-binah-purple mx-1"></div>
+                      <div class="flex flex-col items-center gap-1">
+                        <div class="w-5 h-5 rounded-full bg-binah-purple flex items-center justify-center border border-black/20">
+                          <svg class="w-2.5 h-2.5 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                        </div>
+                        <span class="text-[7px] font-bold text-binah-purple">En tránsito</span>
+                      </div>
+                      <div class="flex-1 h-0.5 bg-black/10 mx-1"></div>
+                      <div class="flex flex-col items-center gap-1">
+                        <div class="w-5 h-5 rounded-full bg-black/5 border-2 border-black/20"></div>
+                        <span class="text-[7px] font-medium text-black/40">En destino</span>
+                      </div>
+                      <div class="flex-1 h-0.5 bg-black/10 mx-1"></div>
+                      <div class="flex flex-col items-center gap-1">
+                        <div class="w-5 h-5 rounded-full bg-black/5 border-2 border-black/20"></div>
+                        <span class="text-[7px] font-medium text-black/40">Entregado</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <!-- ============ INVOICING MOCKUP ============ -->
+              {feature.id === 'facturacion-siigo' && (
+                <div class="p-3 bg-binah-lavender/40">
+                  <div class="bg-white rounded-brutal border-2 border-black p-4">
+                    <div class="flex justify-between items-start mb-4">
+                      <div>
+                        <div class="text-[12px] font-extrabold text-binah-charcoal">Factura Electrónica</div>
+                        <div class="text-[10px] text-black/40 mt-0.5 font-medium">FE-2024-0847 · 12 Feb 2024</div>
+                      </div>
+                      <div class="flex items-center gap-1.5">
+                        <span class="bg-emerald-100 text-emerald-800 text-[8px] font-bold px-1.5 py-0.5 rounded border border-emerald-300">Emitida</span>
+                        <span class="bg-binah-lavender text-binah-purple text-[8px] font-bold px-1.5 py-0.5 rounded flex items-center gap-0.5 border border-binah-purple/30">
+                          <svg class="w-2 h-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                          DIAN
+                        </span>
+                      </div>
+                    </div>
+                    <table class="w-full text-[9px] mb-3">
+                      <thead>
+                        <tr class="border-b-2 border-black/10">
+                          <th class="text-left py-1.5 text-black/40 font-bold">Descripción</th>
+                          <th class="text-center py-1.5 text-black/40 font-bold">Cant.</th>
+                          <th class="text-right py-1.5 text-black/40 font-bold">Precio</th>
+                          <th class="text-right py-1.5 text-black/40 font-bold">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {[
+                          { desc: 'Camiseta Premium', qty: '3', price: '$45,000', total: '$135,000' },
+                          { desc: 'Pantalón Cargo', qty: '1', price: '$89,000', total: '$89,000' },
+                          { desc: 'Envío Nacional', qty: '1', price: '$12,500', total: '$12,500' },
+                        ].map((item) => (
+                          <tr class="border-b border-black/5 last:border-0">
+                            <td class="py-1.5 text-binah-charcoal font-bold">{item.desc}</td>
+                            <td class="py-1.5 text-center text-black/50">{item.qty}</td>
+                            <td class="py-1.5 text-right text-black/50">{item.price}</td>
+                            <td class="py-1.5 text-right text-binah-charcoal font-bold">{item.total}</td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                    <div class="border-t-2 border-black/10 pt-2 space-y-1">
+                      <div class="flex justify-between text-[9px]">
+                        <span class="text-black/40">Subtotal</span>
+                        <span class="text-binah-charcoal font-bold">$236,500</span>
+                      </div>
+                      <div class="flex justify-between text-[9px]">
+                        <span class="text-black/40">IVA 19%</span>
+                        <span class="text-binah-charcoal font-bold">$44,935</span>
+                      </div>
+                      <div class="flex justify-between text-[11px] font-extrabold border-t-2 border-black pt-1.5 mt-1">
+                        <span class="text-binah-charcoal">Total</span>
+                        <span class="text-binah-purple">$281,435</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
+
+              <!-- ============ INVENTORY MOCKUP ============ -->
+              {feature.id === 'inventario' && (
+                <div class="p-3 bg-binah-lavender/40">
+                  <div class="bg-white rounded-brutal border-2 border-black overflow-hidden">
+                    <table class="w-full text-[10px]">
+                      <thead>
+                        <tr class="border-b-2 border-black bg-binah-lavender/60">
+                          <th class="text-left py-2 px-3 text-black/50 font-bold">Producto</th>
+                          <th class="text-center py-2 px-3 text-black/50 font-bold">Principal</th>
+                          <th class="text-center py-2 px-3 text-black/50 font-bold hidden sm:table-cell">Norte</th>
+                          <th class="text-center py-2 px-3 text-black/50 font-bold hidden sm:table-cell">Sur</th>
+                          <th class="text-center py-2 px-3 text-black/50 font-bold">Total</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="border-b border-black/10">
+                          <td class="py-2 px-3 font-bold text-binah-charcoal">Camiseta Premium</td>
+                          <td class="py-2 px-3 text-center text-black/50">124</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">86</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">45</td>
+                          <td class="py-2 px-3 text-center font-extrabold text-binah-charcoal">255</td>
+                        </tr>
+                        <tr class="border-b border-black/10">
+                          <td class="py-2 px-3 font-bold text-binah-charcoal">Pantalón Cargo</td>
+                          <td class="py-2 px-3 text-center text-black/50">67</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">23</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">41</td>
+                          <td class="py-2 px-3 text-center font-extrabold text-binah-charcoal">131</td>
+                        </tr>
+                        <tr class="border-b border-black/10">
+                          <td class="py-2 px-3 font-bold text-binah-charcoal">
+                            <span class="flex items-center gap-1 flex-wrap">
+                              Hoodie Oversize
+                              <span class="bg-red-100 text-red-700 text-[7px] font-bold px-1 py-px rounded border border-red-300 shrink-0">Bajo</span>
+                            </span>
+                          </td>
+                          <td class="py-2 px-3 text-center text-red-600 font-extrabold">3</td>
+                          <td class="py-2 px-3 text-center text-red-600 font-extrabold hidden sm:table-cell">2</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">8</td>
+                          <td class="py-2 px-3 text-center font-extrabold text-red-600">13</td>
+                        </tr>
+                        <tr>
+                          <td class="py-2 px-3 font-bold text-binah-charcoal">Gorra Snapback</td>
+                          <td class="py-2 px-3 text-center text-black/50">210</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">98</td>
+                          <td class="py-2 px-3 text-center text-black/50 hidden sm:table-cell">156</td>
+                          <td class="py-2 px-3 text-center font-extrabold text-binah-charcoal">464</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                  <div class="mt-2 bg-red-50 border-2 border-red-400 rounded-brutal px-3 py-2 flex items-center gap-2">
+                    <svg class="w-3.5 h-3.5 text-red-500 shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd" />
+                    </svg>
+                    <span class="text-[9px] text-red-700 font-bold">Hoodie Oversize bajo mínimo (10 uds) — Alerta enviada</span>
+                  </div>
+                </div>
+              )}
+
+              <!-- ============ AUTOMATIONS MOCKUP ============ -->
+              {feature.id === 'automatizaciones' && (
+                <div class="p-4 bg-binah-lavender/40">
+                  <div class="flex items-center justify-between mb-3">
+                    <div class="text-[10px] text-black/40 font-bold">Flujo: Nuevo Pedido Automático</div>
+                    <span class="bg-emerald-100 text-emerald-800 text-[8px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 border border-emerald-300">
+                      <span class="w-1 h-1 rounded-full bg-emerald-500"></span>
+                      Activo
+                    </span>
+                  </div>
+                  <div class="bg-white rounded-brutal border-2 border-black p-3">
+                    <div class="space-y-0">
+                      {[
+                        { label: 'Nuevo Pedido', source: 'Shopify webhook', done: true },
+                        { label: 'Verificar Pago', source: 'Wompi confirmado', done: true },
+                        { label: 'Asignar Bodega', source: 'Regla: cercanía', done: true },
+                        { label: 'Generar Guía', source: 'Coordinadora', done: false, active: true },
+                        { label: 'Facturar', source: 'Siigo automático', done: false },
+                        { label: 'Notificar Cliente', source: 'WhatsApp plantilla', done: false },
+                      ].map((step, idx) => (
+                        <div class="flex items-start gap-3">
+                          <div class="flex flex-col items-center">
+                            <div class={`w-6 h-6 rounded-full flex items-center justify-center shrink-0 ${step.done ? 'bg-binah-purple border border-black/20' : step.active ? 'bg-binah-lavender border-2 border-binah-purple' : 'bg-black/5 border-2 border-black/20'}`}>
+                              {step.done ? (
+                                <svg class="w-3 h-3 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd" /></svg>
+                              ) : step.active ? (
+                                <div class="w-2 h-2 rounded-full bg-binah-purple animate-pulse"></div>
+                              ) : (
+                                <div class="w-1.5 h-1.5 rounded-full bg-black/20"></div>
+                              )}
+                            </div>
+                            {idx < 5 && (
+                              <div class={`w-0.5 h-5 ${step.done ? 'bg-binah-purple' : 'bg-black/10'}`}></div>
+                            )}
+                          </div>
+                          <div class="pb-3">
+                            <div class={`text-[11px] font-extrabold ${step.done || step.active ? 'text-binah-charcoal' : 'text-black/30'}`}>{step.label}</div>
+                            <div class={`text-[9px] ${step.active ? 'text-binah-purple font-bold' : 'text-black/40 font-medium'}`}>
+                              {step.active ? 'En proceso...' : step.source}
+                            </div>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const sections = document.querySelectorAll('[data-feature-section]');
+  const navLinks = document.querySelectorAll('[data-feature-nav]');
+
+  const observerOptions = {
+    root: null,
+    rootMargin: '-30% 0px -60% 0px',
+    threshold: 0,
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        const id = entry.target.id;
+        navLinks.forEach((link) => {
+          const isActive = link.getAttribute('href') === `#${id}`;
+          const dot = link.querySelector('.feature-nav-dot');
+          if (isActive) {
+            link.classList.remove('text-black/40', 'border-transparent');
+            link.classList.add('text-binah-charcoal', 'bg-white', 'border-black', 'shadow-brutal-sm');
+            if (dot) {
+              dot.classList.remove('bg-black/20', 'w-2', 'h-2');
+              dot.classList.add('bg-binah-purple', 'w-2.5', 'h-2.5');
+            }
+          } else {
+            link.classList.add('text-black/40', 'border-transparent');
+            link.classList.remove('text-binah-charcoal', 'bg-white', 'border-black', 'shadow-brutal-sm');
+            if (dot) {
+              dot.classList.add('bg-black/20', 'w-2', 'h-2');
+              dot.classList.remove('bg-binah-purple', 'w-2.5', 'h-2.5');
+            }
+          }
+        });
+      }
+    });
+  }, observerOptions);
+
+  sections.forEach((section) => observer.observe(section));
+</script>

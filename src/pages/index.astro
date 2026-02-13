@@ -1,0 +1,30 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Navigation from '../components/Navigation.astro';
+import Hero from '../components/Hero.astro';
+import SocialProofMarquee from '../components/SocialProofMarquee.astro';
+import ProblemSolution from '../components/ProblemSolution.astro';
+import FeatureGrid from '../components/FeatureGrid.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import UseCasePersonas from '../components/UseCasePersonas.astro';
+import Testimonials from '../components/Testimonials.astro';
+import FinalCTA from '../components/FinalCTA.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout title="Binah — Tu e-commerce, una sola plataforma.">
+  <Navigation />
+  <main>
+    <div class="min-h-screen flex flex-col">
+      <Hero />
+      <SocialProofMarquee />
+    </div>
+    <ProblemSolution />
+    <FeatureGrid />
+    <HowItWorks />
+    <UseCasePersonas />
+    <Testimonials />
+    <FinalCTA />
+  </main>
+  <Footer />
+</Layout>
